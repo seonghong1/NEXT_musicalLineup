@@ -1,19 +1,23 @@
-import { MongoClient } from "mongodb";
+import {
+  connectDatabase,
+  insertDocument,
+  getallDocument,
+} from "@/helpers/db-utill";
 
 async function comment(req, res) {
   const eventId = req.query.eventId;
-  const client = await MongoClient.connect(
-    "mongodb+srv://joseonghong:whtjdghd0127@cluster0.xplbrps.mongodb.net/events?retryWrites=true&w=majority"
-  );
-  const db = client.db();
+  const client = await connectDatabase();
 
   if (req.method === "GET") {
-    const allContents = await db
-      .collection("comments")
-      .find({ "comments.eventId": eventId })
-      .sort({ _id: -1 })
-      .toArray();
-    res.status(200).json({ message: "success", comments: allContents });
+    try {
+      const allContents = await getallDocument(client, "comments", {
+        "comments.eventId": eventId,
+      });
+      res.status(200).json({ message: "success", comments: allContents });
+    } catch (err) {
+      res.status(500).json({ message: "get allContents fail" });
+    }
+    client.close();
   } else if (req.method === "POST") {
     const { email, name, text } = req.body;
     const newComment = {
@@ -22,10 +26,15 @@ async function comment(req, res) {
       text: text,
       eventId: eventId,
     };
-
-    const result = await db
-      .collection("comments")
-      .insertOne({ comments: newComment });
+    let result;
+    try {
+      result = insertDocument(client, "comments", {
+        comment: newComment,
+      });
+    } catch (err) {
+      res.status(500).json({ message: "insert faild" });
+      return;
+    }
 
     newComment.id = result.insertedId;
     res.status(200).json({ message: "added comment", comment: newComment });

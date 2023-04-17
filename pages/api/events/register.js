@@ -1,15 +1,5 @@
-import { MongoClient } from "mongodb";
+import { connectDatabase, insertDocument } from "@/helpers/db-utill";
 
-async function connectDatabase() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://joseonghong:whtjdghd0127@cluster0.xplbrps.mongodb.net/events?retryWrites=true&w=majority"
-  );
-  return client;
-}
-async function insertDocument(client, document) {
-  const db = client.db();
-  await db.collection("newsletter").insertOne(document);
-}
 async function register(req, res) {
   if (req.method === "POST") {
     const email = req.body.email;
@@ -27,7 +17,7 @@ async function register(req, res) {
     }
 
     try {
-      await insertDocument(client, { email: email });
+      await insertDocument(client, "newsletter", { email: email });
     } catch (err) {
       res.status(500).json({ message: "inserting failed" });
       return;
