@@ -3,6 +3,7 @@ import styles from "./event-item.module.css";
 import Button from "../ui/button";
 import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
+import Image from "next/image";
 import ArrowRightIcon from "../icons/arrow-right-icon";
 
 function EventItem(props) {
@@ -19,7 +20,7 @@ function EventItem(props) {
   const exploreLink = `/events/${id}`;
   return (
     <li key={id} className={styles.item}>
-      <img src={`/${image}`} alt={title} />
+      <Image width="300" height="300" src={`/${image}`} alt={title} />
       <div className={styles.content}>
         <div className={styles.summary}>
           <h2>{title}</h2>
