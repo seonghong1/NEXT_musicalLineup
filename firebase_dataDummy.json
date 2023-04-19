@@ -1,0 +1,103 @@
+{
+  "events": {
+    "e1": {
+      "date": "2023-03-25",
+      "description": "뮤지컬 맘마미아!",
+      "id": "e1",
+      "image": "images/맘마미아.jpg",
+      "isFeatured": true,
+      "location": "충무아트센터, 중극장 블랙",
+      "title": "뮤지컬 맘마미아!"
+    },
+    "e2": {
+      "date": "2023-03-30",
+      "description": "뮤지컬 오페라의 유령(부산)",
+      "id": "e2",
+      "image": "images/오페라의유령.gif",
+      "isFeatured": true,
+      "location": "트림씨어터",
+      "title": "뮤지컬 오페라의 유령(부산)"
+    },
+    "e3": {
+      "date": "2022-04-27",
+      "description": "뮤지컬 오이디푸스",
+      "id": "e3",
+      "image": "images/오이디푸스.jpg",
+      "isFeatured": true,
+      "location": "관악아트홀",
+      "title": "뮤지컬 오이디푸스"
+    },
+    "e4": {
+      "date": "2023-05-27",
+      "description": "뮤지컬 시카고",
+      "id": " e4",
+      "image": "images/시카고.jpg",
+      "isFeatured": true,
+      "location": "블루스퀘어 신한카드홀",
+      "title": "뮤지컬 시카고"
+    },
+    "e5": {
+      "date": "2022-06-01",
+      "description": "뮤지컬 모차르트!",
+      "id": "e5",
+      "image": "images/모차르트.jpg",
+      "isFeatured": true,
+      "location": "세종문화회관 대극장",
+      "title": "뮤지컬 모차르트!"
+    },
+    "e6": {
+      "date": "2023-06-01",
+      "description": "",
+      "id": "e6",
+      "image": "images/아르토고흐.jpg",
+      "isFeatured": true,
+      "location": "예스24 스테이지, 1관",
+      "title": "뮤지컬 아르토, 고흐"
+    },
+    "e7": {
+      "date": "2023-07-12",
+      "description": "",
+      "id": "e7",
+      "image": "images/그날들.jpg",
+      "isFeatured": true,
+      "location": "예술의 전당, 오페라극장",
+      "title": "뮤지컬 그날들"
+    },
+    "e8": {
+      "date": "2023-07-14",
+      "description": "",
+      "id": "e8",
+      "image": "images/오페라의유령.gif",
+      "isFeatured": true,
+      "location": "샤롯데씨어터",
+      "title": "뮤지컬 오페라의 유령"
+    },
+    "e9": {
+      "date": "2023-08-11",
+      "description": "",
+      "id": "e9",
+      "image": "images/레베카.jpg",
+      "isFeatured": true,
+      "location": "블루스퀘어, 신한카드홀",
+      "title": "뮤지컬 레베카"
+    },
+    "e10": {
+      "date": "2023-09-01",
+      "description": "",
+      "id": "e10",
+      "image": "images/벤허.jpg",
+      "isFeatured": true,
+      "location": "LG아트센터 서울, LG시그니처홀",
+      "title": "뮤지컬 벤허"
+    },
+    "e11": {
+      "date": "2023-11-30",
+      "description": "",
+      "id": "e11",
+      "image": "images/레미제라블.jpg",
+      "isFeatured": true,
+      "location": "블루스퀘어, 신한카드홀",
+      "title": "뮤지컬 레미제라블"
+    }
+  }
+}

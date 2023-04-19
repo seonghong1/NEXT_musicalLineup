@@ -7,6 +7,7 @@ function EventList({ items }) {
       {items.map((item) => {
         return (
           <EventItem
+            key={item.id}
             title={item.title}
             image={item.image}
             date={item.date}

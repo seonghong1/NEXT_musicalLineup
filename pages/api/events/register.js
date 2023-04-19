@@ -1,6 +1,18 @@
-import { connectDatabase, insertDocument } from "@/helpers/db-utill";
+import {
+  connectDatabase,
+  insertDocument,
+  getregister,
+} from "@/helpers/db-utill";
 
 async function register(req, res) {
+  let client;
+  try {
+    client = await connectDatabase();
+  } catch (err) {
+    res.status(500).json({ message: "connecting failed" });
+    return;
+  }
+
   if (req.method === "POST") {
     const email = req.body.email;
     if (!email || !email.includes("@")) {
@@ -8,22 +20,20 @@ async function register(req, res) {
       return;
     }
 
-    let client;
-    try {
-      client = await connectDatabase();
-    } catch (err) {
-      res.status(500).json({ message: "connecting failed" });
-      return;
-    }
-
     try {
       await insertDocument(client, "newsletter", { email: email });
     } catch (err) {
       res.status(500).json({ message: "inserting failed" });
-      return;
     }
-    client.close();
     res.status(201).json({ email: email });
+  } else if (req.method === "GET") {
+    try {
+      const allRegister = await getregister(client, "newsletter");
+      res.status(200).json({ message: "success", allRegister: allRegister });
+    } catch (err) {
+      res.status(500).json({ message: "getregister failed" });
+    }
   }
+  client.close();
 }
 export default register;

@@ -18,10 +18,13 @@ function ALLEventPage(props) {
       </Head>
       <EventsSearch onSearch={findEventHandler} />
       <EventList items={props.events} />
+      <div className="visitor"></div>
     </div>
   );
 }
+
 export default ALLEventPage;
+
 export async function getStaticProps() {
   const AllEvents = await getAllEvents();
 

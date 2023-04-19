@@ -6,9 +6,9 @@ function CommentList(props) {
       {props.items.map((item) => {
         return (
           <li key={item._id}>
-            <p>{item.comments.text}</p>
+            <p>{item.comment.text}</p>
             <div>
-              By <address>{item.comments.name}</address>
+              By <address>{item.comment.name}</address>
             </div>
           </li>
         );

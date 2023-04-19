@@ -39,19 +39,19 @@ function NewComment(props) {
     <form onSubmit={sendCommentHandler} className={classes.form}>
       <div className={classes.row}>
         <div className={classes.control}>
-          <label htmlFor="email">Your email</label>
+          <label htmlFor="email">Email</label>
           <input type="email" id="email" ref={emailInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor="name">Your name</label>
+          <label htmlFor="name">이름</label>
           <input type="text" id="name" ref={nameInputRef} />
         </div>
       </div>
       <div className={classes.control}>
-        <label htmlFor="comment">Your comment</label>
+        <label htmlFor="comment">댓글</label>
         <textarea id="comment" rows="5" ref={commentInputRef}></textarea>
       </div>
-      {isInvalid && <p>Please enter a valid email address and comment!</p>}
+      {isInvalid && <p>내용을 모두 기입해주세요 !</p>}
       <button>Submit</button>
     </form>
   );

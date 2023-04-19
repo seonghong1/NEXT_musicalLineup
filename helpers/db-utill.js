@@ -1,9 +1,7 @@
 import { MongoClient } from "mongodb";
 
 export async function connectDatabase() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://joseonghong:whtjdghd0127@cluster0.xplbrps.mongodb.net/events?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.MONGODB_URL);
   return client;
 }
 export async function insertDocument(client, collection, document) {
@@ -20,4 +18,14 @@ export async function getallDocument(client, collection, filter) {
     .sort({ _id: -1 })
     .toArray();
   return allContents;
+}
+
+export async function getregister(client, collection) {
+  const db = client.db();
+  const allRegister = await db
+    .collection(collection)
+    .find()
+    .sort({ _id: -1 })
+    .toArray();
+  return allRegister;
 }

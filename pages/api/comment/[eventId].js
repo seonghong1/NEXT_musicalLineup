@@ -6,18 +6,24 @@ import {
 
 async function comment(req, res) {
   const eventId = req.query.eventId;
-  const client = await connectDatabase();
+  let client;
+
+  try {
+    client = await connectDatabase();
+  } catch (err) {
+    res.status(500).json({ message: "Connecting to the database failed!" });
+    return;
+  }
 
   if (req.method === "GET") {
     try {
       const allContents = await getallDocument(client, "comments", {
-        "comments.eventId": eventId,
+        "comment.eventId": eventId,
       });
       res.status(200).json({ message: "success", comments: allContents });
     } catch (err) {
       res.status(500).json({ message: "get allContents fail" });
     }
-    client.close();
   } else if (req.method === "POST") {
     const { email, name, text } = req.body;
     const newComment = {
@@ -28,16 +34,14 @@ async function comment(req, res) {
     };
     let result;
     try {
-      result = insertDocument(client, "comments", {
+      result = await insertDocument(client, "comments", {
         comment: newComment,
       });
+      newComment.id = result.insertedId;
+      res.status(200).json({ message: "added comment", comment: newComment });
     } catch (err) {
       res.status(500).json({ message: "insert faild" });
-      return;
     }
-
-    newComment.id = result.insertedId;
-    res.status(200).json({ message: "added comment", comment: newComment });
   }
   client.close();
 }

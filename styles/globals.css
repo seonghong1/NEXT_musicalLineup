@@ -8,7 +8,7 @@ body {
   margin: 0;
   font-family: "Open Sans", "Lato", sans-serif;
   color: #414141;
-  background-color: #e4f1f1;
+  background-color: black;
 }
 
 h1,
@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
   font-family: "Lato", sans-serif;
-  color: #2b2b2b;
+  color: #ffffff;
 }
 
 ul {
@@ -30,4 +30,22 @@ ul {
 .center {
   margin: auto;
   text-align: center;
+}
+.register_list {
+  box-shadow: 0px 0px 9px 3px #ffffff;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+}
+.register_list ul {
+  padding: 20px;
+  color: white;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.register_list li {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  list-style: square;
 }

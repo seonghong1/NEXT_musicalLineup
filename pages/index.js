@@ -2,6 +2,7 @@ import { getFeaturedEvents } from "@/helpers/api-utill";
 import EventList from "@/components/events/event-list";
 import Head from "next/head";
 import NewsletterRegistration from "@/components/input/newsletter-registration";
+import { useEffect, useState } from "react";
 
 function HomePage(props) {
   return (
@@ -15,7 +16,6 @@ function HomePage(props) {
     </>
   );
 }
-
 export default HomePage;
 
 export async function getStaticProps() {

@@ -1,17 +1,18 @@
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
   padding: 1rem 10%;
   height: 5rem;
-  background-color: #202020;
+  background-color: #000000;
+  position: relative;
 }
 
 .logo {
   font-size: 1.5rem;
   color: white;
-  font-family: 'Fira', sans-serif;
+  font-family: "Fira", sans-serif;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -21,12 +22,16 @@
 
 .logo a {
   text-decoration: none;
-  color: #94fdfd;
+  color: #ffffff;
 }
-
+.navigation {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}
 .navigation a {
   text-decoration: none;
-  color: #74dacc;
+  color: #ffffff;
   font-size: 1rem;
 }
 
