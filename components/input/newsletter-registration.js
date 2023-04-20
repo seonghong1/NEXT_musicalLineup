@@ -11,8 +11,8 @@ function NewsletterRegistration() {
     event.preventDefault();
     const reqBody = { email: emailInput.current.value };
     notificationCtx.showNotification({
-      title: "singing up...",
-      message: "registering for newsletter...",
+      title: "방명록에 저장중. . . .",
+      message: "방명록에 저장중. . . .",
       status: "pending",
     });
 
@@ -33,16 +33,16 @@ function NewsletterRegistration() {
       })
       .then((data) => {
         notificationCtx.showNotification({
-          title: "success",
-          message: "success registering for newsletter",
+          title: "방명록 등록 완료 !",
+          message: "방명록 등록 완료 !",
           status: "success",
         });
         getregister();
       })
       .catch((err) => {
         notificationCtx.showNotification({
-          title: "error",
-          message: "error registering for newsletter",
+          title: "에러발생 !!!!",
+          message: "에러발생 !!!!",
           status: "error",
         });
       });

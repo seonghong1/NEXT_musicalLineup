@@ -34,8 +34,8 @@ function Comments(props) {
 
   function addCommentHandler(commentData) {
     notificationCtx.showNotification({
-      title: "add new comment .....",
-      message: "add newcomment . . .",
+      title: "댓글 저장 중. . . .",
+      message: "댓글 저장 중. . . .",
       status: "pending",
     });
     fetch(`/api/comment/${eventId}`, {
@@ -48,8 +48,8 @@ function Comments(props) {
       .then((res) => res.json())
       .then((data) => {
         notificationCtx.showNotification({
-          title: "success add newcomment",
-          message: "success add newcomment",
+          title: "댓글 작성 완료 !",
+          message: "댓글 작성 완료 !",
           status: "success",
         });
         getComment();
